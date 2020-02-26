@@ -1,0 +1,28 @@
+﻿<Page
+    x:Class="BindingApp.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:BindingApp"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:winui="using:Microsoft.UI.Xaml.Controls"
+    mc:Ignorable="d"
+    x:Name="Self"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid>
+        <ScrollViewer>
+            <Grid>
+                <winui:ItemsRepeater ItemsSource="{Binding NavigationItems}">
+                    <DataTemplate>
+                        <winui:ItemsRepeater ItemsSource="{Binding Location}" ElementPrepared="ItemsRepeater_ElementPrepared">
+                            <DataTemplate>
+                                <Image Source="{Binding Icon}"/>
+                            </DataTemplate>
+                        </winui:ItemsRepeater>
+                    </DataTemplate>
+                </winui:ItemsRepeater>
+            </Grid>
+        </ScrollViewer>
+    </Grid>
+</Page>
